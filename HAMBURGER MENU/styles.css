@@ -1,0 +1,50 @@
+#checkbox{
+display: none;
+}
+#checkbox:checked~ .line-main::before{
+    transform: rotate(45deg);
+}
+#checkbox:checked~ .line-main::after{
+    transform: rotate(-45deg);
+}
+#checkbox:checked~ .line-split::before{
+    transform: translateX(-10px);
+    opacity: 0;
+}
+#checkbox:checked~ .line-split::after{
+    transform: translateX(20px);
+    opacity: 0;
+}
+.hamburger{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding : 20px;
+    cursor: pointer;
+}
+.line{
+    position: absolute;
+    width: 20px;
+}
+.line-main::before,.line-main::after,.line-split::before,.line-split::after{
+    content:'';
+    position: absolute;
+    width: inherit;
+    height: 2px;
+    background-color:#000;
+    transition: transform .5s;
+}
+.line-main::before{
+    transform: translateY(-7px);
+}
+.line-main::after{
+    transform: translateY(7px);
+}
+.line-split::before,.line-split::after{
+    width: 10px;
+    transition: transform .5s, opacity .5s;
+}
+.line-split::after{
+    transform: translateX(10px);
+}
